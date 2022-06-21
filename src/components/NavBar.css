@@ -5,7 +5,9 @@
     list-style: none;
     box-sizing: border-box;
 }
-
+.logo{
+    height: 75px;
+}
 nav{
     background: grey;
     height: 80px;
@@ -15,9 +17,7 @@ nav{
     position: absolute;
     padding: 20px 50px;
 }
-.logo{
-    height: 40px;
-}
+
 nav ul{
     float: right;
     margin-right: 20px;

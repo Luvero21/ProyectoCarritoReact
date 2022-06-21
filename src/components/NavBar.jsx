@@ -1,6 +1,8 @@
 import React from 'react';
 import CardtWidget from './CartWidget';
 import './NavBar.css';
+import logo from '../assets/logo.png';
+
 
 const Navbar = ()=>{
     return(
@@ -9,7 +11,7 @@ const Navbar = ()=>{
         <label for="check" className='checkbtn'>
         <i className='fas fa-bars'></i>
         </label>
-        <img src= "logo.png" alt= "" className="logo"/>
+        <img src={logo} width='80px' heigth='130px' alt="logo" className="logo"/>
         <ul>
             <li><a href="#active">Inicio</a></li>
             <li><a href="#nosotros">Nosotros</a></li>

@@ -1,0 +1,33 @@
+
+.Count{
+    color: pink;
+    size: 25px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.Add{
+    font-size:20px;
+        font-family:Verdana,Helvetica;
+        font-weight:bold;
+        color:white;
+        background:grey;
+        border:0px;
+        width:auto;
+        height:40px;
+        padding: 4px;
+        margin-left: 5px;
+        margin-right: 5px;
+        border-radius: 3px;
+}
+.Carrito{
+    font-size:20px;
+        font-family:Verdana,Helvetica;
+        font-weight:bold;
+        color:white;
+        background:pink;
+        border:0px;
+        width:auto;
+        height:40px;
+        padding: 3px;
+        border-radius: 3px;
+}
