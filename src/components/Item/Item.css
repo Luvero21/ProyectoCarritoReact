@@ -1,0 +1,8 @@
+.card{
+    width: '18rem;';
+    height: '18rem';
+}
+.card-img-top{
+    width: 50%;
+    height: 50%;
+}
