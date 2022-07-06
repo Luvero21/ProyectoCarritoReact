@@ -5,11 +5,14 @@
     list-style: none;
     box-sizing: border-box;
 }
+
 .logo{
-    height: 75px;
+    height: 60px;
+    margin:5px;
+    margin-left: 30px;
+    object-fit: cover;
 }
 nav{
-    background: grey;
     height: 80px;
     width: 100%;
 }
@@ -38,18 +41,7 @@ li a.active, li a:hover{
     color: purple;
     transition: .4.5s;
 }
-.checkbtn{
-    font-size: 30px;
-    color: #fff;
-    float: right;
-    line-height: 80px;
-    margin-right: 40px;
-    cursor: pointer;
-    display: none;
-}
-#check{
-    display: none;
-}
+
 section{
     background-size: cover;
     background-position: center center;

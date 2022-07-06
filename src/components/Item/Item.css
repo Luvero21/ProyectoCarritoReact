@@ -1,8 +1,27 @@
+
+.imagen{
+    width: 175px;
+    height: 230px;
+}
 .card{
-    width: '18rem;';
-    height: '18rem';
+    margin: 5px;
+}
+.card:hover{
+    box-shadow: 5px 10px 10px rgb(58,58, 55);
+    transition: all 0.7s linear;
+}
+.overflow{
+    overflow: hidden;
 }
 .card-img-top{
-    width: 50%;
-    height: 50%;
+    transition: all 0.2s ease-in-out;
+}
+.card-img-top:hover{
+    transform: scale(1.2);
+}
+.card-body{
+    height: 530px;
+}
+.card-text{
+    font-size: 15px;
 }

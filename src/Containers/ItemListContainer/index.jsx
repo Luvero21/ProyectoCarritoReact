@@ -1,43 +1,54 @@
 import React, { useEffect, useState } from 'react';
-import ItemCount from '../../components/ItemCount';
+//import ItemCount from '../../components/ItemCount';
 import 'bootstrap/dist/css/bootstrap.css';
 import ItemList from '../../components/ItemList';
+import {useParams} from 'react-router-dom';
+import './style.css'
 
 const ItemListContainer = ({greeting}) => {
-  const[productos, setProductos] = useState (null)
-   
-  useEffect(() => {
+  const[productos, setProductos] = useState ([]);
+  const [productosFiltrados,setProductosFiltrados] = useState([]);
+  const params= useParams();
+ 
+
+      useEffect(() => {
   
       const obtenerProductos = async() =>{
       try {
-        const res = await fetch('https://fakestoreapi.com/products');
-        const data = await res.json();
-        setProductos(data);      
+        const respuesta = await fetch('https://fakestoreapi.com/products');
+        const datos = await respuesta.json();
+        setProductos(datos);  
+        setProductosFiltrados(datos);    
 
       } catch (error) {
         console.log('Hubo un error:');
-        console.log(error)
-        
+        console.log(error) 
       }
   }
     obtenerProductos()
   }, []);
 
-  const OnAdd =() =>{
-    console.log("SE AGREGO ITEM AL CARRITO")
-  }
-  return (
-    <div>
-        {greeting}
-        {productos ?
-        <ItemList products={productos}/>
-        :
-        null
-        }
-        <ItemCount OnAdd={OnAdd} inicialStock={10} />
+  useEffect(() =>{
+    if(params?.categoryId){
+      const productosFiltrados = productos.filter(producto =>producto.category === params.categoryId)
+      setProductosFiltrados(productosFiltrados)
+    } else{
+      setProductosFiltrados(productos)
+    }
+
+  },[params,productos])
+   
+  return(
+    <div className='containeer'>
+      {productos.length !== 0 ?
+      <ItemList products={productosFiltrados}/>
+      :
+      <p>ESPERANDO PAGINA...</p>
+}
     </div>
   )
-      }
+
+      };
 
 
 export default ItemListContainer

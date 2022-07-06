@@ -2,32 +2,36 @@ import React, { useState } from 'react';
 import './style.css';
 
 
-const ItemCount = ({handleAdd, inicialStock}) => {
+const ItemCount = ({Initial, stock, OnAdd}) => {
 
 
-    const [Count, SetCount]= useState(0);
+    const [Count, SetCount]= useState(Initial);
 
-    const OnAdd = () =>{
-        if (Count < inicialStock){
+    const HandleAdd = () =>{
+        if (Count < stock){
 SetCount (Count + 1);
+        }else{
+          alert(`Ha superado el stock disponible ${stock}`)
         }
-        
     };
 
-    const OnDecrement =() =>{
-      if (Count>0){
+    const HandleDecrement =() =>{
+      if (Count> Initial){
 SetCount (Count - 1);
-      }
-
-        
+      }else{
+          alert(`Ha superado el stock maximo ${Initial}`)
+        }    
+    }
+    const reset= ()=>{
+      SetCount(Initial)
     }
   return (
-    <div>
+        <div>
         <p className='Count'>{Count}</p>
-        <button onClick={OnAdd} className='Add'> + </button>
+        <button onClick={HandleAdd} className='Add'> + </button>
         <button onClick={OnAdd} className='Carrito'> Agregar al Carrito </button>
-        <button onClick={OnDecrement} className='Add'> - </button> 
-        
+        <button onClick={reset} className='Carrito'> Reset </button>
+        <button onClick={HandleDecrement} className='Add'> - </button> 
         </div>
   )
 };

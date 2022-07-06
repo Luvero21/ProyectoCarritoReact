@@ -2,26 +2,41 @@ import React from 'react';
 import CardtWidget from './CartWidget';
 import './NavBar.css';
 import logo from '../assets/logo.png';
+import {Link} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 const Navbar = ()=>{
     return(
-       <nav>
-        <input type="checkbox" id="check"></input>
-        <label for="check" className='checkbtn'>
-        <i className='fas fa-bars'></i>
-        </label>
+          <nav className="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
+      <div className="container">
         <img src={logo} width='80px' heigth='130px' alt="logo" className="logo"/>
-        <ul>
-            <li><a href="#active">Inicio</a></li>
-            <li><a href="#nosotros">Nosotros</a></li>
-            <li><a href="#ofertas">Ofertas</a></li>
-            <li><a href="#productos">Productos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+        <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <div className="mx-auto"></div>
+          <ul className="navbar-nav">
+            <li className="nav-item"><Link to='/'>HOME</Link></li>
+            <li className="nav-item"><Link to="/category/electronics">ELECTRONICA</Link></li>
+            <li className="nav-item"><Link to="/category/jewelery">JOYAS</Link></li>
+            <li className="nav-item"><Link to="/category/women's clothing">PRENDAS PARA ELLAS</Link></li>
+            <li className="nav-item"><Link to="/category/men's clothing">PRENDAS PARA ELLOS</Link></li>
             <CardtWidget/>
-        </ul>
+          </ul>
+        </div>
+      </div>
     </nav>
- 
+
     );
 }
 export default Navbar

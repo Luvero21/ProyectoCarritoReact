@@ -1,18 +1,28 @@
 
 import './App.css';
 import Navbar from './components/NavBar';
-//import ItemListContainer from './Containers/ItemListContainer';
+import ItemListContainer from './Containers/ItemListContainer';
 import 'bootstrap/dist/css/bootstrap.css';
 import ItemDetailContainer from './Containers/ItemDetailContainer';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import NotFount from './components/NotFount';
+import 'animate.css/animate.min.css';
+
 
 function App() {
+
   return (
-    <div className="App">
+    <BrowserRouter>
       <Navbar/>
-     {/*<ItemListContainer greeting="PROXIMAMENTE CARRITO"/>*/}
-     <ItemDetailContainer/>
-    </div>
+      <Routes>
+        <Route path='/' element={<ItemListContainer/>}></Route>
+        <Route path='/category/:categoryId' element={<ItemListContainer/>}></Route>
+        <Route path='/detail/:productId' element={<ItemDetailContainer/>}></Route>
+        <Route path='*' element={<NotFount/>}></Route>
+      </Routes>
+    </BrowserRouter>
   );
+  
 }
 
 export default App;
