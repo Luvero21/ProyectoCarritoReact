@@ -40,7 +40,7 @@ const ItemListContainer = ({greeting}) => {
    
   return(
     <div className='containeer'>
-      {productos.length !== 0 ?
+     {productos.length !== 0 ?
       <ItemList products={productosFiltrados}/>
       :
       <p>ESPERANDO PAGINA...</p>
