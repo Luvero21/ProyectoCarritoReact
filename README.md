@@ -1,7 +1,6 @@
 # PROYECTO TIENDA LP
 
-Este proyecto se trata de un eccomerce para practicar react-js, ademas se utiliza la api fakestore para obtener los productos.
-Utilice la libreria Bootstrap 5.
+Este proyecto se trata de un e-commerce TIENDA para practicar react-js, ademas se utiliza la api fakestore para obtener los productos y utilice la libreria Bootstrap 5.
 
 ##
 
