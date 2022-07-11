@@ -1,18 +1,31 @@
-import React from 'react';
+//import React, { useContext } from 'react';
 import './stylos.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import ItemCount from '../ItemCount';
 import { useState } from 'react';
+import ItemCountt from '../ItemCountt';
+import { useNavigate } from 'react-router-dom';
+//import { Shop } from '../../contex/ShopProv';
 
 
 //OBTIENE LOS DATOS DEL PRODUCTO
 const ItemDetail = ({product}) => {
+
+  const navigate = useNavigate();
+
   product.stock= 15;
 
   const [cantidadAgregada, setCantidadAgregada]= useState(0);
 
-  const Count = (cantidad) =>{
+ // const {addItem} = useContext(Shop)
+  
+
+  const handleConfirm = (cantidad) =>{
     setCantidadAgregada(cantidad)
+  }
+
+  const handleTerminar = () =>{
+  //  addItem(product, cantidadAgregada)
+    navigate('/cart')
   }
 console.log(cantidadAgregada)
 
@@ -25,7 +38,14 @@ console.log(cantidadAgregada)
         <img src={product.image} className='imge img-fluid' alt={product.title}/>
         </div>
         <p className='productoDes'>{product.description}</p>
-        <ItemCount stock={product.stock} OnAdd={Count} />
+        
+        {!cantidadAgregada ?
+        <ItemCountt confirmado={handleConfirm} stock={product.stock}/>
+        :
+        <button onClick={handleTerminar} className='Carrito'> Finalizar Compra</button>
+
+        }
+       
     </div>
   )
 };

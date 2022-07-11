@@ -7,10 +7,10 @@
 }
 
 .logo{
-    height: 60px;
-    margin:5px;
-    margin-left: 30px;
-    object-fit: cover;
+    font-family: 'Dancing Script', cursive;
+    font-size: 35px;
+    font-weight: bold;
+    color: silver;
 }
 nav{
     height: 80px;

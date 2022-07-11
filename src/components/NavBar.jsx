@@ -1,16 +1,16 @@
 import React from 'react';
 import CardtWidget from './CartWidget';
 import './NavBar.css';
-import logo from '../assets/logo.png';
 import {Link} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
+
 
 
 const Navbar = ()=>{
     return(
           <nav className="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
       <div className="container">
-        <img src={logo} width='80px' heigth='130px' alt="logo" className="logo"/>
+        <p className='logo'> Tienda LyP</p>
         <button
           className="navbar-toggler"
           type="button"

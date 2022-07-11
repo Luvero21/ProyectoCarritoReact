@@ -1,0 +1,11 @@
+.cart{
+     display: flex;
+  text-align:end;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(90deg, #efd5ff 0%, #515ada 100%);
+  background-repeat: no-repeat;
+  font-size: 20px;
+  font-weight: bold;
+}
