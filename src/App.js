@@ -8,14 +8,14 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import NotFount from './components/NotFount';
 import 'animate.css/animate.min.css';
 import Cart from './Containers/Cart';
-
+import ShopProv from './contex/ShopProv';
 
 
 
 function App() {
 
   return (
-   
+    <ShopProv>
     <BrowserRouter>
       <Navbar/>
       <Routes>
@@ -26,7 +26,7 @@ function App() {
         <Route path='*' element={<NotFount/>}></Route>  
       </Routes>
     </BrowserRouter>
-    
+    </ShopProv>
   );
   
 }

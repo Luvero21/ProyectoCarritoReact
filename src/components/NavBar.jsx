@@ -31,7 +31,7 @@ const Navbar = ()=>{
             <li className="nav-item"><Link to="/category/jewelery">JOYAS</Link></li>
             <li className="nav-item"><Link to="/category/women's clothing">PRENDAS PARA ELLAS</Link></li>
             <li className="nav-item"><Link to="/category/men's clothing">PRENDAS PARA ELLOS</Link></li>
-            <CardtWidget/>
+            <li className="nav-item cartt"><CardtWidget/></li>
           </ul>
         </div>
       </div>
