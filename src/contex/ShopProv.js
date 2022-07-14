@@ -22,6 +22,15 @@ const ShopProv = ({children}) => {
       }
 
     }
+    const Total =() =>{
+      let total= 0
+      cart.forEach((producto) =>{
+        total=total +(producto.quantity * producto.price)
+      })
+      return Number(total)
+    }
+
+  
     const removeItem = (id) =>{
       setCart(cart.filter((producto) => producto.id !== id));
      }
@@ -34,7 +43,7 @@ const ShopProv = ({children}) => {
     }
 
   return (
-    <Shop.Provider value={{addItem, cart, removeItem,clear }}>
+    <Shop.Provider value={{addItem, cart, removeItem,clear,Total }}>
         {children}
     </Shop.Provider>
   )
