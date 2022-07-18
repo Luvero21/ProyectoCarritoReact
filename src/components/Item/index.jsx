@@ -12,7 +12,7 @@ const Item = ({product}) => {
  const {title, price, description,image,id,}=product;
 
 const handleDetail= () =>{
-console.log('Navega hacia el detalle...');
+
 navigate(`/detail/${id}`);
 
   }

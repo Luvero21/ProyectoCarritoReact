@@ -7,12 +7,12 @@ import './estilos.css';
 const Cart = () => {
   const {cart, removeItem,clear,Total} = useContext(Shop);
   console.log(cart);
-
+ 
   return (<>
   {
     (cart.length) < 1 ?
   ( <div className='divNoHayItem'>
-    <p>No hay productos en el carrito, seleccionelos.</p>
+    <p className='divNoHayItem'>No hay productos en el carrito, seleccionelos.</p>
     <Link to='/'>Volver a Inicio</Link>
     </div>
   ) 
@@ -51,7 +51,7 @@ const Cart = () => {
           </tbody>
   </table>
   <div>
-    <p className='titleCarrito'> Su total es de $ {Total()}</p>
+    <p className='titleCarrito'> Su compra total es de $ {Total()}</p>
     <button className='eliminar' ><Link to='/'>CONTINUAR COMPRANDO</Link></button>
     <button className='eliminar'><Link to='*'>CONFIRMAR COMPRA</Link></button>
     <button className='eliminar' onClick={() => clear()}> VACIAR CARRITO </button>

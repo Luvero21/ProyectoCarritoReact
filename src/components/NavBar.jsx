@@ -8,16 +8,16 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 const Navbar = ()=>{
     return(
-          <nav className="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
+          <nav className="navbar fixed-top navbar-expand-lg p-md-3">
       <div className="container">
-        <p className='logo'> Tienda LyP</p>
+        <p className='logo'>Tienda LyP</p>
         <button
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
           aria-controls="navbarNav"
-          aria-expanded="false"
+          aria-expanded="true"
           aria-label="Toggle navigation"
         >
         <span className="navbar-toggler-icon"></span>
