@@ -4,8 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import ItemList from '../../components/ItemList';
 import {useParams} from 'react-router-dom';
 import './style.css';
-import { collection, query, getDocs } from "firebase/firestore";
-import { db } from '../../firebase/config';
+import guardarProductos from '../../utils/guardarProductos';
 
 
 const ItemListContainer = ({greeting}) => {
@@ -18,7 +17,9 @@ const ItemListContainer = ({greeting}) => {
   
       const obtenerProductos = async() =>{
       try {
-        const q = query(collection(db, "productos"));
+        guardarProductos()
+        
+        /*const q = query(collection(db, "productos"));
 
        const querySnapshot = await getDocs(q);
        const product = [];
@@ -33,7 +34,7 @@ const ItemListContainer = ({greeting}) => {
       //  const respuesta = await fetch('https://fakestoreapi.com/products');
       //  const datos = await respuesta.json();
         setProductos(product)
-        setProductosFiltrados(product);    
+        setProductosFiltrados(product);    */
 
       } catch (error) {
         console.log('Hubo un error:');
