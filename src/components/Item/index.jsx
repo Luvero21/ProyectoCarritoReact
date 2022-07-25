@@ -26,7 +26,7 @@ navigate(`/detail/${id}`);
     <div className="card-body text-white bg-dark">{id}
     <h5 className="card-title text-secondary">{title}</h5>
     <h5 className='card-price text-danger'>Precio:$ {price}</h5>
-    <p classname= 'card-text text-secondary'>{description}</p>
+    <p className= 'card-text text-secondary'>{description}</p>
     <button className="btn btn-outline-danger rounded-0" onClick={handleDetail}>VER MAS </button>
     </div>
     </div>

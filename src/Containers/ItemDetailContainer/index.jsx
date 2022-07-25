@@ -25,12 +25,12 @@ const ItemDetailContainer = () => {
 
         if (docSnap.exists()) {
        console.log(docSnap.id)
-       console.log("Document data:", docSnap.data());
+       console.log("Datos:", docSnap.data());
        const productDetail = {id: docSnap.id, ...docSnap.data() }
        setProductDetail(productDetail);
 } else {
   // doc.data() will be undefined in this case
-  console.log("No such document!");
+  console.log("Documento no encontrado");
 }
 
        // const respuesta = await fetch (`https://fakestoreapi.com/products/${params.productId}`)

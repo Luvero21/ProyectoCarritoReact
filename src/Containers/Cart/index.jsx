@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import ConfirmarCompra from '../../components/ConfirmarCompra/ConfirmarCompra';
 import { Shop } from '../../contex/ShopProv';
 import './estilos.css';
 
 
+
 const Cart = () => {
   const {cart, removeItem,clear,Total} = useContext(Shop);
-  console.log(cart);
- 
+
   return (<>
   {
     (cart.length) < 1 ?
@@ -53,7 +54,7 @@ const Cart = () => {
   <div>
     <p className='titleCarrito'> Su compra total es de $ {Total()}</p>
     <button className='eliminar' ><Link to='/'>CONTINUAR COMPRANDO</Link></button>
-    <button className='eliminar'><Link to='*'>CONFIRMAR COMPRA</Link></button>
+    <button className='eliminar' onClick={ConfirmarCompra}><Link to='/confirmarCompra'>CONFIRMAR COMPRA</Link></button>
     <button className='eliminar' onClick={() => clear()}> VACIAR CARRITO </button>
   </div>
   </div>)
