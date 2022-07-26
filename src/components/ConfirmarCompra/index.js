@@ -1,19 +1,21 @@
 import { useContext, useState } from "react";
 import { Shop } from "../../contex/ShopProv";
-import {addOrder} from "../../firebase/config";
+import {db} from "../../firebase/config";
 import { Link } from 'react-router-dom';
-import Cart from "../../Containers/Cart";
+import 'bootstrap/dist/css/bootstrap.css';
+import './estilos.css';
+import { addDoc, collection } from "firebase/firestore";
+import swal from "sweetalert";
 
 
 
 const ConfirmarCompra = () =>{
 
     //Contex del carrito.
-    const {cart, clear, Total}= useContext(Shop)
+    const {cart, Total}= useContext(Shop)
 
     // Use state que permite obtener id de la compra,mostrar modal y obtener datos del comprador.
     const[idCompra,setIdCompra]= useState("")
-    const[showModal, setShowModal] = useState ( false)
     const [comprador, setComprador] = useState({
         nombre: '',
         apellido: '',
@@ -21,37 +23,41 @@ const ConfirmarCompra = () =>{
         confirmacionEmail:'',
         telefono: '',
     })
+     const finalizar =() =>{
+        swal({
+            title:"Muchas gracias por su compra, " ,
+            html: <p>Su N° de Orden es:" {idCompra} </p>,
+            text: "El total de su compra fue de ,"+ Total(),
 
-    const handleSubmitChange = (e) =>{
+            }
+        )
+    }
+
+    const handleInputChange = (e) =>{
+        console.log(e.target.nombre);
         setComprador({...comprador,[e.target.nombre]:e.target.value})
     }
 
     //Generacion de Orden con info de comprador.
-    function orderHandle() {
+    const orderHandle = async () => {
         const orderr = {
             comprador,
-            producto:cart,
-            total:Total,
-            date:new Date().toLocaleDateString(),
+            items:cart,
+            total:Total(),
+            date:new Date(),
 
         }
-        addOrder(orderr).then(data => {
-            setIdCompra(data)
-        })
+     await addDoc(collection(db, "orders"), orderr)
+    .then(res => (res.id))
     }
+
 
         //Render de Confirmacion de compra
         return (
         <>
             {/* Confirmacion */}
             <div className="contenedor">
-                <div className="flex">
-
-                    {/* Título */}
-                    <h2 className='title'> CONFIRMACION DE COMPRA </h2>
-                    
-                    {/* Información de la compra */}
-                    <div className="info">
+                
                         
                         {/* Resúmen */}
                         <div className="resumen">
@@ -71,7 +77,7 @@ const ConfirmarCompra = () =>{
                                 </div>
                                 <div className='resumen'>
                                     <p>Total:</p>
-                                    <p>{Total()}</p>
+                                    <p className="text-danger">$ {Total()}</p>
                                 </div>
                             </div>
                             <Link to='/cart'>
@@ -84,90 +90,80 @@ const ConfirmarCompra = () =>{
                         <div className="detalle">
 
                             {/* Formulario */}
-                            <form className="space-y-6">
+                            <form className="row ">
+                                
                                 <h2 className='form'>Detalles de facturación</h2>
+                                <div className="col-md-3">
                                 <input
                                     id="nombre"
                                     type="text"
                                     name="nombre"
                                     required
-                                    onClick={handleSubmitChange}
+                                    onChange={handleInputChange}
                                     placeholder="Nombre"
+                                    className="form-control "
                                 />
+                                </div>
+                                <div className="col-md-3">
                                 <input
                                     id="apellido"
                                     type="text"
                                     name="apellido"
                                     required
-                                    onChange={handleSubmitChange}
+                                    onChange={handleInputChange}
                                     placeholder="Apellido"
+                                    className="form-control"
                                 />
+                                </div>
+                                <div className="col-md-3">
                                 <input
                                     id="telefono"
                                     type="tel"
                                     name="telefono"
                                     required
-                                    onChange={handleSubmitChange}
+                                    onChange={handleInputChange}
                                     placeholder="Teléfono (insertar como mínimo 7 dígitos)"
+                                    className="form-control"
                                 />
+                                </div>
+                                <div className="col-md-3">
                                 <input
                     
                                     id="email"
                                     type="email"
                                     name="email"
                                     required
-                                    onChange={handleSubmitChange}
+                                    onChange={handleInputChange}
                                     placeholder="E-mail"
+                                    className="form-control"
                                 />
+                                </div>
+                                <div className="col-md-3">
                                 <input
                                 
                                     id="emailConfirm"
                                     type="email"
                                     name="emailConfirm"
                                     required
-                                    onChange={handleSubmitChange}
+                                    onChange={handleInputChange}
                                     placeholder="Confirmar e-mail"
+                                    className="form-control"
                                 />
+                                </div>
                             </form>
+                            { true ? (
+                                    <button onClick={finalizar}>
+                                            Finalizar
+                                    </button>
 
-                            {/* Si se completan todos los inputs correctamente, se habilita el botón para proceder con el pago */}
-                            {comprador.nombre && comprador.apellido && comprador.telefono && (comprador.email === comprador.confirmacionEmail)
-                                ? (
-                                    // Botón habilitado
-                                    <input 
-                                        onClick={() => { orderHandle(); setShowModal(true) }} 
-                                        type="submit" 
-                                        value="Proceder al pago" 
-                                    />
+                                   
                                 ) : (
-                                    // Botón deshabilitado
-                                    <input
-                                        type="submit" 
-                                        value="Proceder al pago" 
-                                        disabled 
-                                    />
+                                    <Link to='/'>Volver a Inicio</Link>
+                                   
                                 )
-                            }
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Contenedor modal final */}
-            <div>
-                <div>
-                    <div className="conclusion">
-                        <h2 >¡Muchas gracias por tu compra {(comprador.nombre).toUpperCase()}!</h2>
-                        <p >Te enviamos un mail a {(comprador.email).toLowerCase()} con tu orden de compra ID: {idCompra}. Esperamos que hayas tenido una linda experiencia con TIENDA LYP. ¡Hasta la próxima!</p>
-                        <Link to="/" className="mt-6 flex justify-center">
-                            <button onClick={clear}>
-                                Volver al inicio
-                            </button>
-                        </Link>
-                    </div>
-                </div>
-            </div>
-
+                            
+                                }</div>
+             </div>
         </>
     )
     };

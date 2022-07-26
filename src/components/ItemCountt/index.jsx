@@ -2,24 +2,29 @@ import React, { useState } from 'react';
 import './estilo.css';
 
 
-const ItemCountt = ({ confirmado, stock }) => {
+const ItemCountt = ({ addToCart, stock }) => {
 
     const [value, setValue] = useState(1);
 
-    const handleConfirm = () => {
+    const addCount = () => {
         if (value <= stock) {
-            confirmado(value)
+            setValue((prev) => prev +1)
         }
-        else {
-            alert("Cantidad mayor al stock disponible")
+        
+    }
+    const restCount =() =>{
+        if(value >1){
+            setValue((prev) => prev-1)
         }
     }
+
     return (
         <div className='ContBotones'>
-            <button onClick={() => setValue(value => value+1)}className='Add'>+</button>
-            <button onClick={handleConfirm} className='Carrito'>CONFIRMAR</button>
-            <button onClick={() => setValue(value => value-1)} className='Add'>-</button>
+            <button onClick={addCount}className='Add'>+</button>
+            <button onClick={() => addToCart(value)} className='Carrito'>CONFIRMAR</button>
+            <button onClick={restCount} className='Add'>-</button>
             <span className='block'>{value}</span>
+            <p className='text-center color-danger'>¡Últimas {stock} unidades!</p>
         </div>
     )
 }

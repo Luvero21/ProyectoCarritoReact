@@ -8,7 +8,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import NotFount from './components/NotFount';
 import Cart from './Containers/Cart';
 import ShopProv from './contex/ShopProv';
-import ConfirmarCompra from './components/ConfirmarCompra/ConfirmarCompra';
+import ConfirmarCompra from './components/ConfirmarCompra';
 
 
 

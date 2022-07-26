@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import ConfirmarCompra from '../../components/ConfirmarCompra/ConfirmarCompra';
+import ConfirmarCompra from '../../components/ConfirmarCompra';
 import { Shop } from '../../contex/ShopProv';
 import './estilos.css';
 

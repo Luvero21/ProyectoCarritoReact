@@ -10,7 +10,6 @@ const ShopProv = ({children}) => {
      console.log(producto,cantidad);
 
       const productoRepeat = isInCart(producto);
-      console.log(productoRepeat);
 
       if(productoRepeat){
         productoRepeat.quantity += cantidad

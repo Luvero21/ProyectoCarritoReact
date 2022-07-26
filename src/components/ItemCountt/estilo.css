@@ -1,5 +1,4 @@
 .Count{
-    color: pink;
     size: 25px;
     font-weight: bold;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -10,7 +9,6 @@
     align-items: center;
 }
 .block{
-    background-color: pink;
     height:40px;
     width: 20px;
     text-align: center;
@@ -33,10 +31,10 @@
 }
 .Carrito{
     font-size:20px;
+    background-color: lightcoral;
         font-family:Verdana,Helvetica;
         font-weight:bold;
         color:white;
-        background:pink;
         border:0px;
         width:auto;
         height:40px;

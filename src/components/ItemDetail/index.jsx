@@ -11,7 +11,7 @@ const ItemDetail = ({product}) => {
 
   const navigate = useNavigate();
 
-  product.stock= 15;
+  product.stock= 18;
 
   const [cantidadAgregada, setCantidadAgregada]= useState(0);
 
@@ -19,7 +19,7 @@ const ItemDetail = ({product}) => {
  const {addItem} = useContext(Shop);
   
 
-  const handleConfirm = (cantidad) =>{
+  const addToCart = (cantidad) =>{
     setCantidadAgregada(cantidad)
   }
 
@@ -40,7 +40,7 @@ console.log(cantidadAgregada)
         <p className='productoDes'>{product.description}</p>
         
         {!cantidadAgregada ?
-        <ItemCountt confirmado={handleConfirm} stock={product.stock}/>
+        <ItemCountt addToCart={addToCart} stock={product.stock}/>
         :
         <button onClick={handleTerminar} className='Carrito'> Finalizar Compra</button>
         
