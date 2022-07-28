@@ -21,6 +21,16 @@ const ShopProv = ({children}) => {
       }
 
     }
+    const cartLenght=() =>{
+      let quantity=0
+      cart.forEach((producto) =>{
+        quantity=quantity +producto.quantity
+      })
+      return quantity
+    }
+    cartLenght();
+
+
     const Total =() =>{
       let total= 0
       cart.forEach((producto) =>{
@@ -42,7 +52,7 @@ const ShopProv = ({children}) => {
     }
 
   return (
-    <Shop.Provider value={{addItem, cart, removeItem,clear,Total }}>
+    <Shop.Provider value={{addItem, cart, removeItem,clear,Total,cartLenght }}>
         {children}
     </Shop.Provider>
   )

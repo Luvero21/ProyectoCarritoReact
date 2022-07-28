@@ -22,7 +22,7 @@ export const db = getFirestore(app);
 // Obtener id para la orden de compra
 const addOrder = async (orderr) => {
     const docRef = await addDoc(collection(db, "orders"), orderr)
-    console.log('id:',docRef.id)
+    return docRef.id
 };
 
 

@@ -1,16 +1,16 @@
-import React from 'react'
+import {React,useContext} from 'react'
 import { GrCart } from 'react-icons/gr';
 import { Link } from 'react-router-dom';
 import { Shop } from '../../contex/ShopProv';
 
 const CardtWidget = () => {
-  const {cart} = React.useContext(Shop);
+  const {cartLenght} = useContext(Shop);
   
   return (
     <div>
     <Link to='/cart'>
     <GrCart/>
-    {cart.length && <span> ({cart.length})</span>}
+    {(<span>{cartLenght()}</span>)}
     </Link>
     </div>
   )

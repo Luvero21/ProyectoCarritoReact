@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './estilo.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 const ItemCountt = ({ addToCart, stock }) => {
@@ -24,7 +25,7 @@ const ItemCountt = ({ addToCart, stock }) => {
             <button onClick={() => addToCart(value)} className='Carrito'>CONFIRMAR</button>
             <button onClick={restCount} className='Add'>-</button>
             <span className='block'>{value}</span>
-            <p className='text-center color-danger'>¡Últimas {stock} unidades!</p>
+            <p className='unidades text-center text-danger'>¡Últimas {stock} unidades!</p>
         </div>
     )
 }

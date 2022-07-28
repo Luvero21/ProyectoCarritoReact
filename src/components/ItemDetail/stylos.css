@@ -2,7 +2,8 @@
     width: 20%;
     display: inline-block;
     text-align: center;
-   
+    align-items: center;
+    justify-content: center;
 }
 
 .titulo {
@@ -16,7 +17,7 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: bold;
     size: 35px;
-    padding: auto;
+    padding: 15px;
 }
 h5 {
     justify-content: center;
@@ -38,18 +39,22 @@ h3 {
 }
 .contenedor1{
     display: inline-block;
+    align-items: center;
+    justify-content: center;
 }
 .Carrito{
-    font-size:20px;
+    font: size 17px;
         font-family:Verdana,Helvetica;
         font-weight:bold;
         color:white;
         background:lightcoral;
         border:0px;
         width:auto;
-        height:40px;
-        padding: 3px;
+        height: 28px;
+        padding: 2px 2px;
         border-radius: 3px;
         border: solid 2px black;
         text-align: center;
+        justify-content: center;
+        align-items: center;
 }

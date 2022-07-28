@@ -1,0 +1,11 @@
+.titu{
+    border: 4px lightcoral solid;
+    background-color:lightgrey;
+    text-align: center;
+    width: 400px;
+    margin: auto;
+}
+.link{
+    text-decoration: none;
+    color: lightcoral;
+}

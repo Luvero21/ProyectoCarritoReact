@@ -52,7 +52,7 @@ const Cart = () => {
           </tbody>
   </table>
   <div>
-    <p className='titleCarrito'> Su compra total es de $ {Total()}</p>
+    <p className='titleCarrito'key ={Total}> Su compra total es de $ {Total()}</p>
     <button className='eliminar' ><Link to='/'>CONTINUAR COMPRANDO</Link></button>
     <button className='eliminar' onClick={ConfirmarCompra}><Link to='/confirmarCompra'>CONFIRMAR COMPRA</Link></button>
     <button className='eliminar' onClick={() => clear()}> VACIAR CARRITO </button>

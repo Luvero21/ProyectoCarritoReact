@@ -1,10 +1,18 @@
 
 .imagen{
-    width: 175px;
+    width: 150px;
     height: 230px;
 }
 .card{
     margin: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    overflow: hidden;
+    width: 320px;
+    height: auto;
 }
 .card:hover{
     box-shadow: 5px 10px 10px rgb(58,58, 55);
@@ -20,8 +28,19 @@
     transform: scale(1.2);
 }
 .card-body{
-    height: 530px;
+    height: 230px;
 }
-.card-text{
+.card-title{
+    font: size 17px;
+    height:80px ;
+}
+.btn-outline-danger{
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.card-price{
     font-size: 15px;
+    padding: 20px;
 }
