@@ -89,7 +89,7 @@ const ConfirmarCompra = () =>{
                             
 
                             {/* Formulario */}
-                            <form className="row g-3 pb-5 mb-5">
+                            <form className="row form g-3 pb-5 mb-5">
                                 
                                 <h2 className='form text-secondary text-center pt-5'>Complete con sus datos para finalizar compra.</h2>
                                 <div className="col-6 pt-3">
@@ -167,7 +167,7 @@ const ConfirmarCompra = () =>{
                              ? (
                                 
                                 <input 
-                                        className="bg-danger text-white text-center "
+                                        className="bg-danger text-white btnPago "
                                         onClick={() => {orderHandle(); setShowModal(true) }}
                                         type="submit" 
                                         value="Proceder al pago" 
@@ -183,7 +183,7 @@ const ConfirmarCompra = () =>{
                                 }
                             
              </div>
-             <div className={`${showModal ? "flex" : "hidden"} text-center text-secondary mt-5 pt-5`}>
+             <div className={`${showModal ? "d-flex" : "hidden"} orden text-center text-secondary mt-5 pt-5`}>
                 <div className="container mx-auto justify-center items-center px-4 md:px-10 py-20 place-self-center">
                     <div className="bg-white px-3 md:px-4 py-12 flex flex-col justify-center items-center mt-5">
                         <h2>¡Muchas gracias por tu compra {(comprador.nombre).toUpperCase()}!</h2>

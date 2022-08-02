@@ -10,6 +10,14 @@
     color:#DC3545;;
 }
 .modal{
-    margin-top: 100px;
+    margin-top: 50px;
 }
-
+.form{
+    margin-bottom: 0;
+}
+.orden{
+margin-top: 50px;
+}
+.btnPago{
+    margin: bottom 30px;
+}

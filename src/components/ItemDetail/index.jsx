@@ -15,7 +15,7 @@ const ItemDetail = ({product}) => {
   const [cantidadAgregada, setCantidadAgregada]= useState(0);
 
   //para consumir en TiendaProv
- const {addItem} = useContext(Tienda);
+ const {agregarItem} = useContext(Tienda);
   
 
   const addToCart = (cantidad) =>{
@@ -23,7 +23,7 @@ const ItemDetail = ({product}) => {
   }
 
   const handleTerminar = () =>{
-   addItem(product, cantidadAgregada)
+   agregarItem(product, cantidadAgregada)
     navigate('/cart')
   }
 
