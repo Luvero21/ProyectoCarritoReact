@@ -1,10 +1,10 @@
 import {React,useContext} from 'react'
 import { GrCart } from 'react-icons/gr';
 import { Link } from 'react-router-dom';
-import { Shop } from '../../contex/ShopProv';
+import { Tienda } from '../../contex/TiendaProv';
 
 const CardtWidget = () => {
-  const {cartLenght} = useContext(Shop);
+  const {cartLenght} = useContext(Tienda);
   
   return (
     <div>

@@ -23,22 +23,17 @@ const ItemListContainer = ({greeting}) => {
 
        const querySnapshot = await getDocs(q);
        const product = [];
-      querySnapshot.forEach((doc) => {
-  // doc.data() is never undefined for query doc snapshots
-      //console.log(doc.id, " => ", doc.data());
+      querySnapshot.forEach((doc) => {  
       product.push({id: doc.id, ...doc.data()});
 
       });
-      console.log(product);
 
-      //  const respuesta = await fetch('https://fakestoreapi.com/products');
-      //  const datos = await respuesta.json();
         setProductos(product)
         setProductosFiltrados(product);
 
       } catch (error) {
         console.log('Hubo un error:');
-        console.log(error) 
+
       }
   }
     obtenerProductos()
@@ -55,12 +50,17 @@ const ItemListContainer = ({greeting}) => {
   },[params,productos])
    
   return(
+    <div className='text-center '>
+      <p className='text-secondary h2 pt-5'>NUESTROS PRODUCTOS</p>
+     
     <div className='containeer'>
+      
      {productos.length !== 0 ?
       <ItemList products={productosFiltrados}/>
       :
       <p>ESPERANDO PAGINA...</p>
 }
+ </div>
     </div>
   )
 

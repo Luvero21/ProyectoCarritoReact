@@ -7,11 +7,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
   height: 100%;
-
-
+  background-image:url(../public/assets/ladrillo.jpg);
+  background-size: cover;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+@media (max-width: 425px){
+  #root{width: fit-content;}
+
 }

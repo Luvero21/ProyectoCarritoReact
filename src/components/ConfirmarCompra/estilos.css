@@ -1,5 +1,5 @@
 .titu{
-    border: 4px lightcoral solid;
+    border: 4px #DC3545 solid;
     background-color:lightgrey;
     text-align: center;
     width: 400px;
@@ -7,5 +7,9 @@
 }
 .link{
     text-decoration: none;
-    color: lightcoral;
+    color:#DC3545;;
 }
+.modal{
+    margin-top: 100px;
+}
+

@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Shop } from "../../contex/ShopProv";
+import { Tienda } from "../../contex/TiendaProv";
 import {addOrder} from "../../firebase/config";
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -9,9 +9,7 @@ import './estilos.css';
 
 
 const ConfirmarCompra = () =>{
-
-    //Contex del carrito.
-    const {cart, Total, cartLenght}= useContext(Shop);
+    const {cart, Total, cartLenght}= useContext(Tienda);
 
     // Use state que permite obtener id de la compra,mostrar modal y obtener datos del comprador.
     const[idCompra,setIdCompra]= useState("");
@@ -23,28 +21,20 @@ const ConfirmarCompra = () =>{
         email: '',
         confirmacionEmail:'',
         telefono: '',
-    })
+    });
+    
 
     const emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i
     const telephoneRegex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{1,6}$/im
 
-     /*const finalizar =() =>{
-        swal({
-            title:"Muchas gracias por su compra, " ,
-            html: <p>Su N° de Orden es:" {idCompra} </p>,
-            text: "El total de su compra fue de ,"+ Total(),
-
-            }
-        )
-    }*/
-     const orderDate = new Date().toLocaleDateString();
+    const orderDate = new Date().toLocaleDateString();
    
  //Generacion de Orden con info de comprador.
     const handleSubmitChange = (e) =>{
         setComprador({...comprador, [e.target.name]: e.target.value})
     }   
 //Orden con info del cliente y compra
-    const orderHandle = async () => {
+    function orderHandle () {
         const orderr = {
             comprador,
             items:cart,
@@ -55,8 +45,7 @@ const ConfirmarCompra = () =>{
         addOrder(orderr).then(data =>{
             setIdCompra(data)
         })
-    /* await addDoc(collection(db, "orders"), orderr)
-    .then(res => (res.id))*/
+   
     }
 
 
@@ -64,21 +53,18 @@ const ConfirmarCompra = () =>{
         return (
         <>
             {/* Confirmacion */}
-            <div className="contenedor">
-                
+            <div className="contenedor mb-5 ">
+                <h3 className='resumen text-secondary pb-5'>Resúmen de compra</h3>
                         
                         {/* Resúmen */}
                         <div className="titu">
-                            <h3 className='resumen text-secondary'>Resúmen</h3>
+                            
                             <div>
                                 <div className= 'resumen'>
                                     <p className="text-secondary">Cantidad de items:</p>
                                     <p>{cartLenght()}</p>
                                 </div>
-                                <div className= 'resumen'>
-                                    <p className="text-secondary">Productos:</p>
-                                    <p>{cart.productos}</p>
-                                </div>
+
                                 <div className='resumen'>
                                     <p className="text-secondary">Gastos de envío:</p>
                                     <p>¡Envío gratis!</p>
@@ -103,9 +89,9 @@ const ConfirmarCompra = () =>{
                             
 
                             {/* Formulario */}
-                            <form className="row g-3 pb-5 ">
+                            <form className="row g-3 pb-5 mb-5">
                                 
-                                <h2 className='form text-secondary text-center pt-5'>Complete con sus datos</h2>
+                                <h2 className='form text-secondary text-center pt-5'>Complete con sus datos para finalizar compra.</h2>
                                 <div className="col-6 pt-3">
                                 <input
                                     id="nombre"
@@ -176,25 +162,20 @@ const ConfirmarCompra = () =>{
                                 </div>
                             </form>
                            </div>
-                            {comprador.nombre && comprador.apellido && comprador.telefono&&comprador.dirección && telephoneRegex.test(comprador.telefono)&& emailRegex.test(comprador.email, comprador.emailConfirm)
+                          
+                            {comprador.nombre && comprador.apellido && comprador.telefono &&comprador.dirección && telephoneRegex.test(comprador.telefono)&& emailRegex.test(comprador.email, comprador.emailConfirm)&&(comprador.email === comprador.emailConfirm)
                              ? (
                                 
                                 <input 
-                                        className="bg-secondary text-white text-center "
-                                        onClick={() => { orderHandle(); setShowModal(true) }}
+                                        className="bg-danger text-white text-center "
+                                        onClick={() => {orderHandle(); setShowModal(true) }}
                                         type="submit" 
                                         value="Proceder al pago" 
                                     />
-                                    
-
-                                   
+                                                                      
                                 ) : (
-                                    <input 
-                                        className="text-center"
-                                        type="submit" 
-                                        value="Proceder al pago" 
-                                        disabled 
-                                    />
+                                    <p className='text-dark'>*****Complete el formulario****</p>
+                                    
                                    // <Link to='/'>Volver a Inicio</Link>
                                    
                                 )
@@ -202,12 +183,12 @@ const ConfirmarCompra = () =>{
                                 }
                             
              </div>
-             <div className={`${showModal ? "flex" : "hidden"} text-secondary mt-5 pt-5`}>
+             <div className={`${showModal ? "flex" : "hidden"} text-center text-secondary mt-5 pt-5`}>
                 <div className="container mx-auto justify-center items-center px-4 md:px-10 py-20 place-self-center">
-                    <div className="bg-white px-3 md:px-4 py-12 flex flex-col justify-center items-center">
+                    <div className="bg-white px-3 md:px-4 py-12 flex flex-col justify-center items-center mt-5">
                         <h2>¡Muchas gracias por tu compra {(comprador.nombre).toUpperCase()}!</h2>
                         <p className="pt-5 text-danger">Te enviamos un mail a {(comprador.email).toLowerCase()} con tu orden de compra ID: {idCompra}. ¡Hasta la próxima!</p>
-                        <Link to="/">
+                        <Link className="link text-secondary" to="/">
                             
                                 Volver al inicio
                     

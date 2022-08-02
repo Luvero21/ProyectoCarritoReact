@@ -1,0 +1,28 @@
+.banner{
+    background-image: url(../../../public/assets/boutique-6796399_1920.jpg);
+    height: 500px;
+    background-size: cover;
+
+    
+}
+.title{
+    padding: 50px;
+    font-size: 80px;
+    
+}
+.h6{
+    font-size: 100px;
+    font-family: 'Pacifico', cursive;
+}
+@media (max-width: 768px){
+    .h6{
+        display: none;
+    }
+    .banner{
+        height: 200px;
+    }
+    .title{
+        font-size: 40px;
+    }
+
+}

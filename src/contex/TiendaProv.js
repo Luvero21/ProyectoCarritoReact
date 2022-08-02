@@ -1,15 +1,14 @@
 import React, { useState, createContext } from 'react';
 
-export const Shop = createContext();
+export const Tienda = createContext();
 
-const ShopProv = ({children}) => {
+const TiendaProv = ({children}) => {
   
   const [cart, setCart] = useState([]);
 //Agregar producto al carrito, cantidad
-    const addItem = (producto, cantidad) => {
-     console.log(producto,cantidad);
+    const agregarItem = (producto, cantidad) => {
 
-      const productoRepeat = isInCart(producto);
+      const productoRepeat = estaEnCarro(producto);
 
       if(productoRepeat){
         productoRepeat.quantity += cantidad
@@ -34,9 +33,9 @@ const ShopProv = ({children}) => {
     const Total =() =>{
       let total= 0
       cart.forEach((producto) =>{
-        total=total +(producto.quantity * producto.price)
+        total=total +(producto.quantity * producto.price);
       })
-      return Number(total)
+      return ((total).toFixed(2))
     }
 
   
@@ -47,15 +46,15 @@ const ShopProv = ({children}) => {
       setCart([])
     };
     
-    const isInCart = (producto) => {
+    const estaEnCarro = (producto) => {
       return cart.find(elemento => elemento.id === producto.id)
     }
 
   return (
-    <Shop.Provider value={{addItem, cart, removeItem,clear,Total,cartLenght }}>
+    <Tienda.Provider value={{agregarItem, cart, removeItem,clear,Total,cartLenght }}>
         {children}
-    </Shop.Provider>
+    </Tienda.Provider>
   )
 }
 
-export default ShopProv
+export default TiendaProv

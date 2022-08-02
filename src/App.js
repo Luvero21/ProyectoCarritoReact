@@ -7,17 +7,20 @@ import ItemDetailContainer from './Containers/ItemDetailContainer';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import NotFount from './components/NotFount';
 import Cart from './Containers/Cart';
-import ShopProv from './contex/ShopProv';
+import TiendaProv from './contex/TiendaProv';
 import ConfirmarCompra from './components/ConfirmarCompra';
+import Footer from './components/Footer';
+import Banner from './components/Banner';
 
 
 
 function App() {
 
   return (
-    <ShopProv>
+    <TiendaProv>
     <BrowserRouter>
-      <Navbar/>
+      <Navbar/> 
+      <Banner/>
       <Routes>
         <Route path='/' element={<ItemListContainer/>}></Route>
         <Route path='/category/:categoryId' element={<ItemListContainer/>}></Route>
@@ -26,8 +29,10 @@ function App() {
         <Route path='/confirmarCompra' element={<ConfirmarCompra/>}></Route>
         <Route path='*' element={<NotFount/>}></Route>  
       </Routes>
+      <Footer/>
     </BrowserRouter>
-    </ShopProv>
+    </TiendaProv>
+  
   );
   
 }

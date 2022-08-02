@@ -14,7 +14,7 @@ const ItemDetailContainer = () => {
   const[productDetail, setProductDetail]= useState({});
 
   const params = useParams();
-  console.log(params);
+
   
   //OBTENIENDO LA INFO
   useEffect(() => {
@@ -24,18 +24,14 @@ const ItemDetailContainer = () => {
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-       console.log(docSnap.id)
-       console.log("Datos:", docSnap.data());
        const productDetail = {id: docSnap.id, ...docSnap.data() }
        setProductDetail(productDetail);
 } else {
-  // doc.data() will be undefined in this case
+ 
   console.log("Documento no encontrado");
 }
 
-       // const respuesta = await fetch (`https://fakestoreapi.com/products/${params.productId}`)
-      //  const datos= await respuesta.json();
-      //  setProductDetail(datos);
+
 } catch (error) {
     console.log(error)
       }

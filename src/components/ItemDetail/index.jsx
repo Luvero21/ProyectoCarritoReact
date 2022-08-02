@@ -1,10 +1,9 @@
-//import React, { useContext } from 'react';
 import './stylos.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { useState , useContext} from 'react';
 import ItemCountt from '../ItemCountt';
 import { useNavigate } from 'react-router-dom';
-import { Shop } from '../../contex/ShopProv';
+import { Tienda } from '../../contex/TiendaProv';
 
 //OBTIENE LOS DATOS DEL PRODUCTO
 const ItemDetail = ({product}) => {
@@ -15,8 +14,8 @@ const ItemDetail = ({product}) => {
 
   const [cantidadAgregada, setCantidadAgregada]= useState(0);
 
-  //para consumir en ShopProv
- const {addItem} = useContext(Shop);
+  //para consumir en TiendaProv
+ const {addItem} = useContext(Tienda);
   
 
   const addToCart = (cantidad) =>{
@@ -27,17 +26,15 @@ const ItemDetail = ({product}) => {
    addItem(product, cantidadAgregada)
     navigate('/cart')
   }
-console.log(cantidadAgregada)
-  
 
   return (
     <>
-    <div className='contenedor'>
-        <h3 className='titulo '>{product.title}</h3>
+      <div className='contenedor'>
+        <h3 className='titulo text-dark'>{product.title}</h3>
         <div className='contenedor1 d-flex'>
         <img src={product.image} className='imge img-fluid' alt={product.title}/>
         </div>
-        <p className='productoDes'>{product.description}</p>
+        <p className='productoDes text-dark text-center'>{product.description}</p>
         
         {!cantidadAgregada ?
         <ItemCountt addToCart={addToCart} stock={product.stock}/>
@@ -45,10 +42,7 @@ console.log(cantidadAgregada)
         <button onClick={handleTerminar} className='Carrito'> Finalizar Compra</button>
         
         }
-      
-
-       
-    </div>
+     </div>
     </>
   )
 };
