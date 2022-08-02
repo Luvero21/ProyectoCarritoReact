@@ -6,16 +6,16 @@
 
 <h3>Datos</>
 
-*Curso en CoderHouse React js
+_*Curso en CoderHouse React js
 *Profesor Sebastian Ancavil
 *Tutor Rodrigo Collins
-*Proyecto: E-commerce.
+*Proyecto: E-commerce._
 
 
-Este proyecto se trata de un e-commerce TIENDA, en el cual se utilizo el framework react-js("^18.1.0",), ademas se consumio la api fakestore para obtener los productos , y utilice libreria Bootstrap 5 ("^5.2.0-beta1") y una base de datos de Firebase (^9.9.0).En esta Tienda, se puede realizar la compra de productos agrupados de acuerdos a categorias en sus respectivos links, o visualizarlos completamente en la pagina inicial de la tienda (Home), se puede obtener la descripcion del producto, seleccionar la cantidad que se requiere comprar y al finalizar la compra se visualiza una tabla con las descrpcion de los productos seleccionados, si todo esta ok se puede proceder a la compra donde se lo redirecciona a un link con el resumen de compra y ademas un formulario con los datos del cliente necesarios para realizar la compra, al llenar el formulario con los datos requeridos, se habilita un boton para finalizar la compra, el cual genera una despedida con el numero de orden de compra.
+_Este proyecto se trata de un e-commerce TIENDA, en el cual se utilizo el framework react-js("^18.1.0",), ademas se consumio la api fakestore para obtener los productos , y utilice libreria Bootstrap 5 ("^5.2.0-beta1") y una base de datos de Firebase (^9.9.0).En esta Tienda, se puede realizar la compra de productos agrupados de acuerdos a categorias en sus respectivos links, o visualizarlos completamente en la pagina inicial de la tienda (Home), se puede obtener la descripcion del producto, seleccionar la cantidad que se requiere comprar y al finalizar la compra se visualiza una tabla con las descrpcion de los productos seleccionados, si todo esta ok se puede proceder a la compra donde se lo redirecciona a un link con el resumen de compra y ademas un formulario con los datos del cliente necesarios para realizar la compra, al llenar el formulario con los datos requeridos, se habilita un boton para finalizar la compra, el cual genera una despedida con el numero de orden de compra._
 
 Construido con 🛠️
-* [Html5] (https://html.com/document/) Tecologia utilizada.
+_* [Html5] (https://html.com/document/) Tecologia utilizada.
 * [Css3] (https://www.w3.org/) Tecnologia utilizada
 * Javascrip
 * [React js] (https://es.reactjs.org/docs/getting-started.html) El framework web usado
@@ -26,6 +26,6 @@ Construido con 🛠️
 * [Gestor de paquetes] (https://nodejs.org/en/) npm 
 
 ## Agradecimiento🎁
-*Sebastian Ancavil, excelente docente!!!!
+_*Sebastian Ancavil, excelente docente!!!!
 *Rodrigo Collins, mi tutor siempre dispuesto a resolver dudas.
 *Flia  ❤️
