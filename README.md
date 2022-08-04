@@ -1,9 +1,4 @@
 <h1 align="center">TIENDA LYP</h1>
-<<<<<<< HEAD
-
-=======
-
-> > > > > > > 0d13d727b1f7b441c134403ff131173bdedf708f
 
 ![Tienda LYP - Google Chrome 2022-08-02 16-32-23](https://user-images.githubusercontent.com/96453178/182463568-457bf6fa-9478-45a7-9a00-f60e19814d76.gif)
 
