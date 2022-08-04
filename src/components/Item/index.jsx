@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import './Item.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
-//import ItemCount from '../ItemCount';
 
 const Item = ({product}) => {
 

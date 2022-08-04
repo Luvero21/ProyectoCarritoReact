@@ -1,19 +1,16 @@
 
 .contenedorCart{
   width: 100%;
-  margin-top: auto;
 
 }
 .titleCarrito{
- 
-  margin-top: auto;
   font-size: 30px;
-  margin-top: 100px;
+  margin-top: 50px;
   color:grey;
 }
 .eliminar{
  font-weight: bold;
-  font-size: 10px;
+  font-size: 15px;
   padding: 0.5em 0.5em;
   background: rgba(0,0,0,0);
   transition: all 1s ease;
@@ -25,7 +22,7 @@
   color: rgb(104, 79, 103);
 }
 .divNoHayItem{
-  margin-top: 100px;
+  margin-top: 50px;
   font-size: 30px;
 }
 .link{
@@ -34,10 +31,11 @@
 }
 
 
+
 th,
 td {
   padding: 12px 15px;
-  text-align: left;
+  text-align: center;
   border-top: 1px solid grey;
   border-bottom: 1px solid grey; 
 border-left:1px solid grey;
@@ -48,3 +46,9 @@ td:first-child {
 th:last-child,
 td:last-child {
   padding-right: 0; }
+
+  @media (max-width:768px):{
+  .contenedorCart{
+    font-size:12px
+  }
+}

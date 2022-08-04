@@ -175,8 +175,6 @@ const ConfirmarCompra = () =>{
                                                                       
                                 ) : (
                                     <p className='text-dark'>*****Complete el formulario****</p>
-                                    
-                                   // <Link to='/'>Volver a Inicio</Link>
                                    
                                 )
                             
