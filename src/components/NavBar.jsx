@@ -17,7 +17,7 @@ const Navbar = ()=>{
             </label>
             <a className='logo' href="/">Tienda LyP</a>
             <ul className='ul'>
-                <li><Link className='nav-item' to='/'>HOME</Link></li>
+                <li><Link className='nav-item' to='/'>MENU</Link></li>
                 <li><Link className='nav-item' to='/category/electronics'>ELECTRONICA</Link></li>
                 <li><Link className='nav-item' to='/category/jewelery'>JOYAS</Link></li>
                 <li><Link className='nav-item' to="/category/women's clothing " >PARA ELLAS</Link></li>
